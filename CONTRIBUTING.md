@@ -7,7 +7,7 @@
 
 ## Testing
 ### Development environment details
-The simulation is set up for the newest version on Androidd Studio.
+The simulation is set up for the newest version on Android Studio.
 ### How to submit changes:
 Please submit a Pull Request when you would like to submit changes. 
 ### How to report a bug: 
