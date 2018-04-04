@@ -35,21 +35,8 @@ import com.google.gson.JsonParser;
 
 public class GetSentiment {
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-    // Replace the accessKey string value with your valid access key.
     static String accessKey = "2714f483344d4415a6e530fd9fe63a33";
 
-    // Replace or verify the region.
-
-    // You must use the same region in your REST API call as you used to obtain your access keys.
-    // For example, if you obtained your access keys from the westus region, replace
-    // "westcentralus" in the URI below with "westus".
-
-    // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    // a free trial access key, you should not need to change this region.
     static String host = "https://westus.api.cognitive.microsoft.com";
 
     static String path = "/text/analytics/v2.0/sentiment";
@@ -80,12 +67,12 @@ public class GetSentiment {
         }
         in.close();
 
-//        System.out.println(response.toString());
-
         return response.toString();
-        // return text;
     }
 
+    /**
+     *
+     */
     public static String prettify(String json_text) {
         Log.d("TAG2:", json_text);
         JsonParser parser = new JsonParser();
@@ -93,13 +80,6 @@ public class GetSentiment {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
-    public static String findTopIntent(String input) {
-        int intentIdxStart = input.indexOf("intent") + 10;
-        int intentIdxEnd = input.indexOf("\"", intentIdxStart);
-//        System.out.println(input.substring(intentIdxStart, intentIdxEnd));
-        return input.substring(intentIdxStart, intentIdxEnd);
-    }
-
 
     /**
      *
@@ -114,8 +94,10 @@ public class GetSentiment {
         }
     }
 
+    /**
+     *
+     */
     static class Documents {
-        //public List<com.example.emilyhowing.secondconscience.Document> documents;
         public List<Document> documents;
 
         public Documents() {
@@ -125,8 +107,5 @@ public class GetSentiment {
         public void add(String id, String language, String text) {
             this.documents.add(new Document(id, language, text));
         }
-
     }
-
-
 }

@@ -5,42 +5,15 @@ import android.util.Log;
 
 /**
  * Created by emilyhowing on 4/2/18.
+ * This class...
  */
 
 public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
 
     public AsyncResponse delegate = null;
 
-
     final float sentimentThreshold = (float) 0.20;
     final float minLUISMatchScore = (float) 0.85;
-
-    //Documents d = EnterMessage.getDocs();
-//    HttpUrlConnect obj = new HttpUrlConnect();
-
-    //        this.docs.add("1", "en", str);
-//        final String text = new Gson().toJson(docs);
-//
-//        Context context;
-//
-//        String returnString = "";
-//
-//        public byte[] utfThing() {
-//            try {
-//                byte[] encoded_text = text.getBytes("UTF-8");
-//                return encoded_text;
-//
-//            } catch (UnsupportedEncodingException exc) {
-//                System.out.println(exc.getMessage());
-//            }
-//            return null;
-//        }
-
-//        byte[] encoded_text = utfThing();
-
-//    public SentimentAsyncTask(Context context) {
-//        this.context = context;
-//    }
 
     protected String doInBackground(String... strings) {
         String message = strings[0];
@@ -68,7 +41,6 @@ public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
                     if (newScore > minLUISMatchScore && !topIntent.equals("None")) {
                         Log.d("Bullying", "Bullying has been detected");
                         MainActivity.isBullying = true;
-                        // IF WE'RE HERE, BULLYING HAS BEEN DETECTED
                         return "true";
                     }
                 } catch (Exception e) {
@@ -92,9 +64,13 @@ public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
 
     }
 
+    /**
+     * This function extracts the score from the Json
+     * @param input in json
+     * @return score
+     */
     public static float findScore(String input) {
         int scoreIndexStart = input.indexOf("score") + 8;
-        //System.out.println(input);
         int idx = scoreIndexStart + 2;
         while (Character.isDigit(input.charAt(idx))) {
             idx++;
@@ -106,10 +82,14 @@ public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
         return numFinal;
     }
 
+    /**
+     * This function extracts the top intent from the json
+     * @param input in json
+     * @return String of the top intent
+     */
     public static String findTopIntent(String input) {
         int intentIdxStart = input.indexOf("intent") + 10;
         int intentIdxEnd = input.indexOf("\"", intentIdxStart);
-//        System.out.println(input.substring(intentIdxStart, intentIdxEnd));
         return input.substring(intentIdxStart, intentIdxEnd);
     }
 }

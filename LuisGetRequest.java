@@ -28,30 +28,28 @@ public class LuisGetRequest {
 
     }
 
-    // HTTP GET request
+    //HTTP GET request
     static public String sendGet(String query) throws Exception {
 
         String url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/84b1f33f-ec76-4539-a01e-1d0dada1f10a?subscription-key=20d2344d1a06408caa9465dc4bd4d380&spellCheck=true&bing-spell-check-subscription-key=4946a79341fa49268fb57c4a01aa1166&verbose=true&timezoneOffset=0&q=";
 
-        // Remove the spaces and replace them with '%20'
+        //Remove the spaces and replace them with '%20'
         String[] splitArray = query.split("\\s+");
         String newQuery = TextUtils.join("%20", splitArray);
 
-        // Append the query to our bot url
+        //Append the query to our bot url
         url += newQuery;
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-        // optional default is GET
+        //optional default is GET
         con.setRequestMethod("GET");
 
         //add request header
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         int responseCode = con.getResponseCode();
-        // System.out.println("\nSending 'GET' request to URL : " + url);
-        // System.out.println("Response Code : " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -59,14 +57,9 @@ public class LuisGetRequest {
         StringBuffer response = new StringBuffer();
 
         while ((inputLine = in.readLine()) != null) {
-            // System.out.println(inputLine);
             response.append(inputLine);
         }
         in.close();
-
-        //print result
-//        System.out.println(response.toString().getClass().getName());
-//        System.out.println(response);
 
         return response.toString();
 
