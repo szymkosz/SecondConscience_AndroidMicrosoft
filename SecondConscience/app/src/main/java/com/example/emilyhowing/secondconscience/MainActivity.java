@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
                                        EditText e = (EditText) (findViewById(R.id.editText));
                                        message = e.getText().toString();
 
+                                       isBullying = false;
+
                                        asyncTask.execute(message);
                                        try {
                                            Thread.sleep(700);
@@ -82,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
                                            Log.d("isBullyingBeforeAlert", Boolean.toString(isBullying));
 
                                            if (isBullying) {
-                                               Log.d("Bully: ", "Yes, this bitch is bullying");
                                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                                builder
                                                        .setTitle("Bullying Detected")
@@ -91,20 +92,24 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
                                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                                            public void onClick(DialogInterface dialog, int which) {
                                                                //Yes button clicked, do something
-                                                               Toast.makeText(MainActivity.this, "User Reported",
+                                                               Toast.makeText(MainActivity.this, "Posting...",
                                                                        Toast.LENGTH_LONG).show();
                                                            }
                                                        })
                                                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                                            public void onClick(DialogInterface dialog, int which) {
                                                                //Yes button clicked, do something
-                                                               Toast.makeText(MainActivity.this, "Notification Ignored",
+                                                               Toast.makeText(MainActivity.this, "Post deleted.",
                                                                        Toast.LENGTH_LONG).show();
+
                                                            }
                                                        })                        //Do nothing on no
                                                        .show();
                                            }
 
+                                       // Reset all relevant fields/vars
+                                       e.setText("");
+                                       Log.d("PENIS", Boolean.toString(isBullying));
                                        AsyncResponse temp = asyncTask.delegate;
                                        asyncTask = new SentimentAsyncTask();
                                        asyncTask.delegate = temp;

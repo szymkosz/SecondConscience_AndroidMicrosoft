@@ -13,7 +13,7 @@ public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
     public AsyncResponse delegate = null;
 
     final float sentimentThreshold = (float) 0.20;
-    final float minLUISMatchScore = (float) 0.85;
+    final float minLUISMatchScore = (float) 0.80;
 
     protected String doInBackground(String... strings) {
         String message = strings[0];
