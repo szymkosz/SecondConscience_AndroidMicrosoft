@@ -23,7 +23,7 @@ public class SentimentAsyncTask extends AsyncTask<String, Void, String> {
 
     // Threshold score used for analysis
     final float sentimentThreshold = (float) 0.20;
-    final float minLUISMatchScore = (float) 0.80;
+    final float minLUISMatchScore = (float) 0.70;
 
     /**
      *
