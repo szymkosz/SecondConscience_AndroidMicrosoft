@@ -1,7 +1,8 @@
 package com.example.emilyhowing.secondconscience;
 
 /**
- * Created by emilyhowing on 3/28/18.
+ * Code is from Microsoft Azure website: 
+ * https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/java
  */
 
 import android.content.Context;
@@ -82,7 +83,7 @@ public class GetSentiment {
     }
 
     /**
-     *
+     * Class used for JSON formatting
      */
     static class Document {
         public String id, language, text;
@@ -95,7 +96,7 @@ public class GetSentiment {
     }
 
     /**
-     *
+     * Class used for JSON formatting
      */
     static class Documents {
         public List<Document> documents;

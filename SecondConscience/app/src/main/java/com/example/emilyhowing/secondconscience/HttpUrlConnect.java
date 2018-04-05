@@ -1,9 +1,5 @@
 package com.example.emilyhowing.secondconscience;
 
-/**
- * Created by emilyhowing on 3/28/18.
- */
-
 import android.text.TextUtils;
 
 import java.io.BufferedReader;

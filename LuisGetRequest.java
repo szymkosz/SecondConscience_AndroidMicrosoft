@@ -1,10 +1,9 @@
 package com.example.emilyhowing.secondconscience;
 
 /**
- * Created by emilyhowing on 3/28/18.
+ * Adapted from Microsoft
+ * https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-get-started-java-get-intent
  */
-
-
 import android.text.TextUtils;
 
 import java.io.BufferedReader;
