@@ -1,14 +1,9 @@
-package com.example.emilyhowing.secondconscience;
+package com.secondconscience.backend;
 
 /**
  * Code is from Microsoft Azure website:
  * https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/java
  */
-
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -36,7 +31,7 @@ import com.google.gson.JsonParser;
 
 public class GetSentiment {
 
-    static String accessKey = "2714f483344d4415a6e530fd9fe63a33";
+    static String accessKey = "b94d27788b514a33bc6e8029e16fd1d5";
 
     static String host = "https://westus.api.cognitive.microsoft.com";
 
@@ -75,38 +70,9 @@ public class GetSentiment {
      *
      */
     public static String prettify(String json_text) {
-        Log.d("TAG2:", json_text);
         JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(json_text).getAsJsonObject();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
-    }
-
-    /**
-     * Class used for JSON formatting
-     */
-    static class Document {
-        public String id, language, text;
-
-        public Document(String id, String language, String text) {
-            this.id = id;
-            this.language = language;
-            this.text = text;
-        }
-    }
-
-    /**
-     * Class used for JSON formatting
-     */
-    static class Documents {
-        public List<Document> documents;
-
-        public Documents() {
-            this.documents = new ArrayList<Document>();
-        }
-
-        public void add(String id, String language, String text) {
-            this.documents.add(new Document(id, language, text));
-        }
     }
 }

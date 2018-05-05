@@ -1,7 +1,11 @@
+package com.secondconscience.backend;
+
+import java.util.List;
+import java.util.ArrayList;
 /**
  * Class used for JSON formatting
  */
-static class Documents {
+public class Documents {
     public List<Document> documents;
 
     public Documents() {
@@ -11,17 +15,17 @@ static class Documents {
     public void add(String id, String language, String text) {
         this.documents.add(new Document(id, language, text));
     }
-}
 
-/**
- * Class used for JSON formatting
- */
-static class Document {
-    public String id, language, text;
+    /**
+     * Class used for JSON formatting
+     */
+    static class Document {
+        public String id, language, text;
 
-    public Document(String id, String language, String text) {
-        this.id = id;
-        this.language = language;
-        this.text = text;
+        public Document(String id, String language, String text) {
+            this.id = id;
+            this.language = language;
+            this.text = text;
+        }
     }
 }
