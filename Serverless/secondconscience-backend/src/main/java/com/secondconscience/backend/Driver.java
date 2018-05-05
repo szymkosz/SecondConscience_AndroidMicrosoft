@@ -32,7 +32,7 @@ public class Driver {
                     context.getLogger().info("topIntent: " + topIntent);
                     context.getLogger().info("LUIS Score: " + String.valueOf(LUISScore));
 
-                    if (newScore > minLUISMatchScore && !topIntent.equals("None"))
+                    if (LUISScore > minLUISMatchScore && !topIntent.equals("None"))
                     {
                         // Bullying is detected
                         context.getLogger().info("Cyber-bullying has been detected.");
