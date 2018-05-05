@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         {
             isBullying = true;
         }
+        Log.d("PFinish", String.valueOf(isBullying));
     }
 
     @Override
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
 
                 // Sleep this thread so it does not continue on before analysis is complete
                 try {
-                    Thread.sleep(700);
+                    Thread.sleep(800);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
