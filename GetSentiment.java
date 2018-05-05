@@ -1,7 +1,7 @@
 package com.example.emilyhowing.secondconscience;
 
 /**
- * Code is from Microsoft Azure website: 
+ * Code is from Microsoft Azure website:
  * https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/java
  */
 
@@ -36,7 +36,7 @@ import com.google.gson.JsonParser;
 
 public class GetSentiment {
 
-    static String accessKey = "2714f483344d4415a6e530fd9fe63a33";
+    static String accessKey = "b94d27788b514a33bc6e8029e16fd1d5";
 
     static String host = "https://westus.api.cognitive.microsoft.com";
 

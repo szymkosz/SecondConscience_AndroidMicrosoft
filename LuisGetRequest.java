@@ -23,14 +23,14 @@ public class LuisGetRequest {
         HttpUrlConnect http = new HttpUrlConnect();
 
         System.out.println("Testing 1 - Send Http GET request");
-        System.out.println(http.sendGet("you a hoe"));
+        System.out.println(http.sendGet("I don't like you."));
 
     }
 
     //HTTP GET request
     static public String sendGet(String query) throws Exception {
 
-        String url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/84b1f33f-ec76-4539-a01e-1d0dada1f10a?subscription-key=20d2344d1a06408caa9465dc4bd4d380&spellCheck=true&bing-spell-check-subscription-key=4946a79341fa49268fb57c4a01aa1166&verbose=true&timezoneOffset=0&q=";
+        String url = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/84b1f33f-ec76-4539-a01e-1d0dada1f10a?subscription-key=20d2344d1a06408caa9465dc4bd4d380&spellCheck=true&bing-spell-check-subscription-key=61de1a9d630f452eb3c2236115ce4ba0&verbose=true&timezoneOffset=0&q=";
 
         //Remove the spaces and replace them with '%20'
         String[] splitArray = query.split("\\s+");
