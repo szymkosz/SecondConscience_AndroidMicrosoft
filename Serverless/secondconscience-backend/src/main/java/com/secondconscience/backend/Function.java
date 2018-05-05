@@ -6,6 +6,8 @@ import com.microsoft.azure.serverless.functions.*;
 
 /**
  * Azure Functions with HTTP Trigger.
+ *  To deploy updates to this and other functions, in terminal run the following command
+ *      mvn clean package && mvn azure-functions:deploy
  */
 public class Function {
     /**
